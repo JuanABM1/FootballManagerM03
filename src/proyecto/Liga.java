@@ -16,24 +16,12 @@ public class Liga {
         this.numTeams = numTeams;
     }
 
-    // getters
 
-
-    public String getName() {
-        return name;
-    }
-
+    // getters y setters
 
     public ArrayList<Equipo> getEquipos() {
         return equipos;
     }
-
-
-    public int getNumTeams() {
-        return numTeams;
-    }
-
-
 
     // metodos
 
@@ -54,6 +42,7 @@ public class Liga {
                 } else if (equipos.get(i).getPunctuation() == equipos.get(j).getPunctuation()) {
                     equipos.get(i).tieMatch();
                     equipos.get(j).tieMatch();
+
                 } else if (equipos.get(j).getPunctuation() > equipos.get(i).getPunctuation()) {
                     int numGoalsWinner = (int) (Math.random()*5)+1;
                     int numGoalsLoser = (int) (Math.random()*numGoalsWinner);

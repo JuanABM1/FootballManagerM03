@@ -1,21 +1,25 @@
-package proyecto;
+import proyecto.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 
 public class Main {
-    
+
     public static void main(String[] args) {
 
+        Liga currentLeague = null;
         ArrayList<Persona> personajes = new ArrayList<>();
         ArrayList<Equipo> equipos = new ArrayList<>();
         String[] generalOptions = generalOptions();
         String[] teamOptions = teamOptions();
         int option, indexTeam;
-        createDefaultObjects(equipos, personajes);
+        currentLeague = createDefaultObjects(equipos, personajes);
+
 
         boolean exit = false;
         do {
@@ -39,10 +43,13 @@ public class Main {
                     consultarPersona(personajes);
                     break;
                 case 6:
-                    nuevaLiga(equipos);
+                    currentLeague = nuevaLiga(equipos);
                     break;
                 case 7:
                     realizarEntrenamiento(personajes);
+                    break;
+                case 8:
+                    showLeagueResults(currentLeague);
                     break;
                 case 0:
                     exit = true;
@@ -54,7 +61,33 @@ public class Main {
         }while (!exit);
     }
 
-    private static void createDefaultObjects(ArrayList<Equipo> equipos, ArrayList<Persona> personajes) {
+    /**
+     * Metodo que muestra en orden los resultados de la liga
+     * @param currentLeague Ultima liga creada
+     */
+    private static void showLeagueResults(Liga currentLeague) {
+        if (currentLeague == null){
+            System.out.println("There's no data of the current league, make a new one");
+        }else{
+            ArrayList<Equipo> teamsInLeague = new ArrayList<>(currentLeague.getEquipos());
+            Collections.sort(teamsInLeague);
+            Iterator<Equipo> iterator = teamsInLeague.iterator();
+
+            System.out.println("Resultados de la liga");
+            while (iterator.hasNext()){
+                System.out.println( ((Equipo)iterator.next()).mostrarResultado());
+            }
+
+        }
+    }
+
+    /**
+     * Creación de los equipos, jugadores y una liga default para el programa
+     * @param equipos lista de equipos
+     * @param personajes lista de jugadores y entrenadores
+     * @return una liga base
+     */
+    private static Liga createDefaultObjects(ArrayList<Equipo> equipos, ArrayList<Persona> personajes) {
         // creacion de equipos con su entrenador y jugadores
 
         //equipo1
@@ -83,6 +116,7 @@ public class Main {
         Liga liga = new Liga("Politecnics league", 2);
         liga.addTeam(e1);
         liga.addTeam(e2);
+        liga.playMatches();
 
         //Creacion de Entrenador libre
         LocalDate l1 = LocalDate.of(1972, 6, 23);
@@ -98,8 +132,17 @@ public class Main {
 
         personajes.add(j1);
         personajes.add(j2);
-        
+
+        return liga;
     }
+
+    /**
+     * Metodo con todas las opciones para el menu de los equipos
+     * @param indexTeam equipo que se esta gestionando actualmente
+     * @param teamOptions Array con las opciones del menu del equipo
+     * @param equipos lista de todos los equipos
+     * @param personajes lista de los personajes tanto jugadores como entrenadores
+     */
 
     private static void manageTeam(int indexTeam, String[] teamOptions, ArrayList<Equipo> equipos, ArrayList<Persona> personajes) {
         int option;
@@ -129,7 +172,7 @@ public class Main {
                         askToSignTrainerOrPlayer(personajes, indexTeam, equipos);
                         break;
                     case 5:
-                        transferPlayer(equipos, personajes, indexTeam);
+                        transferPlayer(equipos, indexTeam);
                         break;
                     case 0:
                         exit = true;
@@ -140,7 +183,12 @@ public class Main {
 
     }
 
-    private static void transferPlayer(ArrayList<Equipo> equipos, ArrayList<Persona> personajes, int indexTeam) {
+    /**
+     * Se muestran los jugadores que se pueden transferir y los equipos a los que se puede transferir
+     * @param equipos Lista de todos los equipos
+     * @param indexTeam Equipo que se esta gestionando
+     */
+    private static void transferPlayer(ArrayList<Equipo> equipos, int indexTeam) {
         int idPlayerToTransfer, indexPlayer = 0, indexTeamToTransfer = 0;
         String nameTeamToTransfer, playerName = null, teamName = null;
         boolean validData;
@@ -194,6 +242,12 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo para fichar un jugador o un entrenador añadiendolo a la lista de jugadores del equipo y retirandolo de la lista de personajes
+     * @param personajes lista de todos los personajes
+     * @param indexTeam Equipo que se esta gestionando
+     * @param equipos lista de todos los equipos
+     */
     private static void askToSignTrainerOrPlayer(ArrayList<Persona> personajes, int indexTeam, ArrayList<Equipo> equipos) {
         char option;
         int personId, j;
@@ -243,8 +297,11 @@ public class Main {
         }
     }
 
-
-
+    /**
+     * Pregunta el nombre del nuevo presidente para el equio
+     * @param indexTeam Equipo que se esta gestionando
+     * @param equipos lista de todos los equipos
+     */
     private static void askNewName(int indexTeam, ArrayList<Equipo> equipos) {
         String newPresindentName;
         System.out.println("Enter the name of the new president");
@@ -262,6 +319,10 @@ public class Main {
 
     }
 
+    /**
+     * Metodo que crea un array con las opciones para el equipo
+     * @return un array de strings con las opciones del equipo
+     */
     private static String[] teamOptions() {
         String[] teamOptions = new String[6];
         teamOptions[0] = "0 - exit menu";
@@ -274,8 +335,12 @@ public class Main {
         return teamOptions;
     }
 
+    /**
+     * Metodo que crea un array con las opciones principales del programa
+     * @return un array de strings con todas las opciones del menu principal
+     */
     private static String[] generalOptions() {
-        String[] generalOptions = new String[8];
+        String[] generalOptions = new String[9];
         generalOptions[0] = "0 - Exit game";
         generalOptions[1] = "1 - Manage team";
         generalOptions[2] = "2 - Register a team";
@@ -284,12 +349,17 @@ public class Main {
         generalOptions[5] = "5 - Consult player data";
         generalOptions[6] = "6 - Play new league";
         generalOptions[7] = "7 - Conduct training session";
+        generalOptions[8] = "8 - See league standings";
 
         return generalOptions;
     }
 
 
-
+    /**
+     * Metodo que pide el nombre de un equipo y se comprueba para saber si existe
+     * @param equipos lista de todos los equipos
+     * @return el indice del equipo o en caso de que no se un valor nulo
+     */
     private static int comprobarSiExisteElEquipo(ArrayList<Equipo> equipos) {
         String name;
         boolean teamFound = false;
@@ -313,6 +383,10 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo que llama a los metodos de las Clases Jugador y Entrenador
+     * @param personajes lista de los personajes
+     */
     private static void realizarEntrenamiento(ArrayList<Persona> personajes) {
         boolean hasChanged;
         for (int i = 0; i < personajes.size(); i++) {
@@ -329,10 +403,17 @@ public class Main {
         }
     }
 
-    private static void nuevaLiga(ArrayList<Equipo> equipos) {
+    /**
+     * Metodo que pide todos los datos para crear una liga nueva y jugar sus partidos
+     * @param equipos lista con todos los equipos
+     * @return la liga nueva o si se ha introducido incorrectamente un equipo pues da un valor nulo
+     */
+    private static Liga nuevaLiga(ArrayList<Equipo> equipos) {
         String nameNewLeague, teamName;
         int numOfTeams, j;
         boolean teamFound = false;
+
+        Liga l1 = null;
 
         if (ToolsBrito.pedirConfirmacion("start a new league")){
             // pide el nombre de la liga nueva y la cantidad de equipos que jugaran
@@ -343,7 +424,7 @@ public class Main {
             numOfTeams = ToolsBrito.leerInt();
 
             if (numOfTeams >= 2 && numOfTeams <= equipos.size()){
-                Liga l1 = new Liga(nameNewLeague, numOfTeams);
+                l1 = new Liga(nameNewLeague, numOfTeams);
 
                 // añade los equipos a la liga
                 for (int i = 0; i < numOfTeams; i++) {
@@ -363,19 +444,23 @@ public class Main {
                 }
                 if (teamFound){
                     l1.playMatches();
-                    System.out.println(l1); // muestra los resultados de la liga
                 }else {
                     System.out.println("It seems an error has occurred");
+                    l1 = null;
                 }
-
-
 
             } else {
                 System.out.println("ERROR!!!!\nPlease check that there are enough teams to play this league or the amount of teams for this league is at least 2");
             }
         }
+
+        return l1;
     }
 
+    /**
+     * Busca un jugador y si existe muestra todos sus datos
+     * @param personajes lista de todos los personajes
+     */
     private static void consultarPersona(ArrayList<Persona> personajes) {
         int i = 0;
         String name;
@@ -394,6 +479,11 @@ public class Main {
             System.out.println("No player with that name has been found.");
         }
     }
+
+    /**
+     * Pide el nombre de un equipo y si existe muestra sus datos
+     * @param equipos lista de los equipos
+     */
 
     private static void consultarEquipo(ArrayList<Equipo> equipos) {
         boolean teamFound = false;
@@ -415,6 +505,10 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo para crear una persona ya sea Jugador o Entrenador
+     * @param personajes lista con los personajes
+     */
     private static void darDeAltaPersona(ArrayList<Persona> personajes) {
         int salary, chosenPosition, dorsal, tournamentsWon;
         String name, lastName, date;
@@ -504,6 +598,10 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo para crear los equipos
+     * @param equipos lista con los equipos
+     */
     private static void pedirDatosEquipo(ArrayList<Equipo> equipos) { // crear equipo
         String name, cityName, stadiumName, presidentname;
         boolean validName;
@@ -551,11 +649,17 @@ public class Main {
 
     }
 
+    /**
+     * Metodo que comprueba si existe un equipo con un nombre especifico
+     * @param equipos lista equipos
+     * @param name String con el nombre que se verificara
+     * @return un boolean que comprueba si el equipo existe o no
+     */
     private static boolean comprobarNombre(ArrayList<Equipo> equipos, String name) {
         boolean validName = true;
         int i = 0;
 
-        // comprobara si existe un equipo con el nombre indicado
+        // comprobará si existe un equipo con el nombre indicado
         do {
             if (name.equalsIgnoreCase(equipos.get(i).getName())){
                 validName = false;
