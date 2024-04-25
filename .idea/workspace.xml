@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe26db4e-8efb-4a9e-a27d-a8dce4549d34" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2cfddVRG7kdqcUQQn9yP11WS7MV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jabri/Desktop/Clase/M03Programacion/object_comparison&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="proyecto" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pruebas" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe26db4e-8efb-4a9e-a27d-a8dce4549d34" name="Changes" comment="" />
+      <created>1708506653758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708506653758</updated>
+      <workItem from="1708506654777" duration="906000" />
+      <workItem from="1708510200331" duration="1344000" />
+      <workItem from="1708680889546" duration="805000" />
+      <workItem from="1708941959109" duration="267000" />
+      <workItem from="1709027342795" duration="2763000" />
+      <workItem from="1709031888175" duration="3639000" />
+      <workItem from="1709037240347" duration="3059000" />
+      <workItem from="1709051032071" duration="5234000" />
+      <workItem from="1709109732771" duration="6728000" />
+      <workItem from="1709279379988" duration="7269000" />
+      <workItem from="1709383726736" duration="5527000" />
+      <workItem from="1709469240466" duration="5611000" />
+      <workItem from="1709478459958" duration="245000" />
+      <workItem from="1709539408213" duration="10000" />
+      <workItem from="1709637074530" duration="7279000" />
+      <workItem from="1709715058566" duration="4572000" />
+      <workItem from="1709884755430" duration="6625000" />
+      <workItem from="1710142802493" duration="297000" />
+      <workItem from="1710236597437" duration="3418000" />
+      <workItem from="1710241504259" duration="7911000" />
+      <workItem from="1710269883594" duration="1809000" />
+      <workItem from="1710317942491" duration="6744000" />
+      <workItem from="1710330849149" duration="159000" />
+      <workItem from="1710331321628" duration="323000" />
+      <workItem from="1710349210650" duration="6878000" />
+      <workItem from="1710488911061" duration="10136000" />
+      <workItem from="1710505424618" duration="991000" />
+      <workItem from="1710749626952" duration="208000" />
+      <workItem from="1710843092029" duration="6000" />
+      <workItem from="1712047874860" duration="29000" />
+      <workItem from="1712054371462" duration="26000" />
+      <workItem from="1712056985976" duration="52000" />
+      <workItem from="1712133466872" duration="309000" />
+      <workItem from="1712134382050" duration="131000" />
+      <workItem from="1712300921284" duration="2720000" />
+      <workItem from="1712565608302" duration="6000" />
+      <workItem from="1713164212232" duration="1720000" />
+      <workItem from="1713168158253" duration="1625000" />
+      <workItem from="1713169835861" duration="832000" />
+      <workItem from="1713258245755" duration="170000" />
+      <workItem from="1713511383718" duration="2682000" />
+      <workItem from="1713518596896" duration="740000" />
+      <workItem from="1713772358584" duration="2958000" />
+      <workItem from="1713862208575" duration="12000" />
+      <workItem from="1713869982911" duration="25000" />
+      <workItem from="1713870904890" duration="55000" />
+      <workItem from="1713870968624" duration="3000" />
+      <workItem from="1713946472935" duration="4534000" />
+      <workItem from="1713953360386" duration="5434000" />
+      <workItem from="1714064376939" duration="1287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
