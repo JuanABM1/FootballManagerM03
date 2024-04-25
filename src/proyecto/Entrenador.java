@@ -24,22 +24,6 @@ public class Entrenador extends Persona{
 
     // getters y setters
 
-    public int getTournamentsWon() {
-        return tournamentsWon;
-    }
-
-    public void setTournamentsWon(int tournamentsWon) {
-        this.tournamentsWon = tournamentsWon;
-    }
-
-    public boolean isNationalSelection() {
-        return nationalSelection;
-    }
-
-    public void setNationalSelection(boolean nationalSelection) {
-        this.nationalSelection = nationalSelection;
-    }
-
     public int getId() {
         return id;
     }
@@ -54,7 +38,7 @@ public class Entrenador extends Persona{
         }
     }
 
-    public void raiseSalary(){
+    public void raiseSalary() {
         this.salary += (int) ((0.5 / salary) * 100);
     }
 

@@ -36,26 +36,10 @@ public class Jugador extends Persona implements Transferible {
         return position;
     }
 
-    public void setPosition(positions position) {
-        this.position = position;
-    }
 
     public double getQuality() {
         return quality;
     }
-
-    public void setQuality(double quality) {
-        this.quality = quality;
-    }
-
-    public int getDorsal() {
-        return dorsal;
-    }
-
-    public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
-    }
-
     public int getId() {
         return id;
     }

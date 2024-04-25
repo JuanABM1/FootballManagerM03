@@ -1,8 +1,9 @@
 package proyecto;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class Equipo {
+public class Equipo implements Comparable {
 
     // Atributos
 
@@ -46,25 +47,6 @@ public class Equipo {
         return name;
     }
 
-
-    public int getFoundationYear() {
-        return foundationYear;
-    }
-
-
-    public String getCityName() {
-        return cityName;
-    }
-
-
-    public String getStadiumName() {
-        return stadiumName;
-    }
-
-    public void setStadiumName(String stadiumName) {
-        this.stadiumName = stadiumName;
-    }
-
     public String getPresidentName() {
         return presidentName;
     }
@@ -77,22 +59,38 @@ public class Equipo {
         return entrenador;
     }
 
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
-    }
-
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
-    }
-
-    public void setJugadores(ArrayList<Jugador> jugadores) {
-        this.jugadores = jugadores;
     }
 
     public double getPunctuation() {
         return punctuation;
     }
 
+    // equals y hashcode
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Equipo equipo = (Equipo) o;
+        return Objects.equals(stats, equipo.stats);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stats);
+    }
+
+    // compareTo
+
+    @Override
+    public int compareTo(Object o) {
+        Equipo equipo = (Equipo) o;
+
+        return this.stats.compareTo(equipo.stats);
+
+    }
     // Metodos
 
     public void dismissCoach(){
@@ -136,4 +134,7 @@ public class Equipo {
         stats.loseMatch(goalsInFavor, goalsAgainst);
     }
 
+    public String mostrarResultado(){
+        return this.name + " -\t Puntos  " + this.stats.getLeaguePuntuation() + "\t GF " + this.stats.getGoalsInFavor();
+    }
 }

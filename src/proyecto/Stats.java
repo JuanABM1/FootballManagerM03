@@ -1,6 +1,8 @@
 package proyecto;
 
-public class Stats {
+import java.util.Objects;
+
+public class Stats implements Comparable {
 
     // Atributos
     private int leaguePuntuation;
@@ -17,34 +19,48 @@ public class Stats {
         this.goalsAgainst = 0;
     }
 
-
-    // getters y setters
-
     public int getLeaguePuntuation() {
         return leaguePuntuation;
-    }
-
-    public void setLeaguePuntuation(int leaguePuntuation) {
-        this.leaguePuntuation = leaguePuntuation;
     }
 
     public int getGoalsInFavor() {
         return goalsInFavor;
     }
 
-    public void setGoalsInFavor(int goalsInFavor) {
-        this.goalsInFavor = goalsInFavor;
-    }
-
     public int getGoalsAgainst() {
         return goalsAgainst;
     }
 
-    public void setGoalsAgainst(int goalsAgainst) {
-        this.goalsAgainst = goalsAgainst;
+    // stats
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stats stats = (Stats) o;
+        return leaguePuntuation == stats.leaguePuntuation && goalsInFavor == stats.goalsInFavor && goalsAgainst == stats.goalsAgainst;
     }
 
-    //
+    @Override
+    public int hashCode() {
+        return Objects.hash(leaguePuntuation, goalsInFavor, goalsAgainst);
+    }
+
+    // compare to
+
+    @Override
+    public int compareTo(Object o) {
+        Stats stats = (Stats) o;
+
+        int diff = stats.leaguePuntuation - this.leaguePuntuation;
+        if (diff != 0){
+            return diff;
+        }else {
+            return stats.goalsInFavor - this.goalsAgainst;
+        }
+    }
+
+    // metodos
 
     @Override
     public String toString() {
@@ -60,14 +76,18 @@ public class Stats {
         this.goalsInFavor += goalsInFavorInMatch;
         this.goalsAgainst += goalsAgainstInMatch;
     }
+
     public void tieMatch(int numberOfGoals){
         this.leaguePuntuation += 1;
 
         this.goalsInFavor += numberOfGoals;
         this.goalsAgainst += numberOfGoals;
     }
+
     public void loseMatch(int goalsInFavorInMatch, int goalsAgainstInMatch){
         this.goalsInFavor += goalsInFavorInMatch;
         this.goalsAgainst += goalsAgainstInMatch;
     }
+
+
 }
